@@ -14,11 +14,12 @@ public class EANValidator {
     }
 
     private static int calculateSum(String value) {
+        final int mod = 2;
         int sum = 0;
         int total;
         for (int index = 0; index < value.length() - 1; index++) {
             int number = Character.getNumericValue(value.charAt(index));
-            boolean isPair = (((index + 1) % 2) == 0);
+            boolean isPair = (((index + 1) % mod) == 0);
             total = calculateNumber(number, isPair);
             sum += total;
         }
@@ -30,11 +31,12 @@ public class EANValidator {
     }
 
     private static boolean calculateResult(int lastValue, int sum) {
+        final int mod = 10;
         boolean isCorrect;
-        if ((sum % 10) == 0 && lastValue == 0) {
+        if ((sum % mod) == 0 && lastValue == 0) {
             isCorrect = true;
         } else {
-            int checksum = 10 - (sum % 10);
+            int checksum = 10 - (sum % mod);
             isCorrect = lastValue == checksum;
         }
         return isCorrect;
