@@ -12,19 +12,19 @@ public class EANValidatorTest {
 
     @Test
     public void test_01() {
-        String value = "9783815820865";
+        final String value = "9783815820865";
         assertTrue(EANValidator.validate(value));
     }
 
     @Test
     public void test_02() {
-        String value = "9783815820864";
+        final String value = "9783815820864";
         assertFalse(EANValidator.validate(value));
     }
 
     @Test
     public void test_03() {
-        String value = "9783827317100";
+        final String value = "9783827317100";
         assertTrue(EANValidator.validate(value));
     }
 }
